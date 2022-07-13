@@ -1,0 +1,7 @@
+### Nim ###
+nimcache/
+nimblecache/
+htmldocs/
+
+### Binary ###
+akumuli
