@@ -22,13 +22,14 @@
 '' ':' 'p' 'O' echo input cross
 
 '+' is if
-  add
+       add print
 else '-' is if
-  swap sub
+  swap sub print
 else '*' is if
-  mul
+       mul print
 else '/' is if
-  swap div
+  swap div print
+else
+  '\n' 'r' 'o' 'r' 'r' 'E' echo
 ;;;;
 
-print

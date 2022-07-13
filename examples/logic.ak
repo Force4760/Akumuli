@@ -17,7 +17,7 @@
 
 '~' is if
     '' ':' 'A' echo input toB
-    not
+    not print
 else
 
     '' ':' 'A' echo input toB
@@ -25,13 +25,13 @@ else
     '' ':' 'B' echo input toB
 
     '^' is if
-        and
+        and print
     else 'v' is if
-        or
+        or print
     else '=' is if
-        eq
+        eq print
+    else
+        '\n' 'r' 'o' 'r' 'r' 'E' echo
     ;;;
 
 ;
-
-print
