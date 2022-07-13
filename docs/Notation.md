@@ -1,6 +1,6 @@
 # Notation
 
-In the docs ( Readme ), I'll be using some notation to simplify things. This document serves as an explanation of that notation
+In the docs I'll be using some notation to simplify things. This document serves as an explanation of that notation
 
 
 ## Type notations
