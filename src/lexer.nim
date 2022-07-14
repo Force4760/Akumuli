@@ -63,8 +63,9 @@ proc getToken*(str: string): Token =
     of "isI", "isF", "isB", "isC":
         return (Kis, str)
 
-    of "print"   : return (Kprint, str)
-    of "echo"    : return (Kecho , str)
+    of "quit" : return (Kquit , str)
+    of "print": return (Kprint, str)
+    of "echo" : return (Kecho , str)
     of "input", "inputStr":
         return (Kinput, str)
 

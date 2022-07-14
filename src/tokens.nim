@@ -5,7 +5,7 @@ type TokenKind* = enum
     Kand, Kor, Knot, Kupper, Klower,
     Kif, Kelse, Kfor, Kwhile, Kindex, Kever, KdefW, Kend,
     Kto, Kis, KvalI, KvalF, KvalB, KvalC, Ktrue, Kfalse,
-    Kunknown, KEOF, Kprint, Kinput, Kecho
+    Kunknown, KEOF, Kprint, Kinput, Kecho, Kquit
 
 
 type Token* = tuple

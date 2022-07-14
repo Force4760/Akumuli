@@ -15,8 +15,28 @@ proc newStk*(T: typedesc): Stk[T] =
     Stk[T](stk: newSeq[T]())
 
 
+proc len*[T](s: Stk[T]): int =
+    ## Get the number of elements contained within the stack
+    s.stk.len()
+
+
+proc mustHave*[T](s: Stk[T], n: int) =
+    ## Ensure the Stk has enought (n) elements for a certain operation
+    ## Throws an IndexError exception if it doesn't
+    if s.len() < n: raise IndexDefect.newException(
+        "Can't use an operation because the stack doesn't have enought elements."
+    )
+
+
 proc pop*[T](s: Stk[T]): T =
     ## Remove and return the top element of the stack
+    s.mustHave(1)
+    return s.stk.pop()
+
+
+proc popNoCheck[T](s: Stk[T]): T =
+    ## Remove and return the top element of the stack
+    ## Does not check if the stack has enough elements
     return s.stk.pop()
 
 
@@ -32,22 +52,21 @@ proc push*[T](s: Stk[T], v: T) =
     s.stk.add(v)
 
 
-proc len*[T](s: Stk[T]): int =
-    ## Get the number of elements contained within the stack
-    s.stk.len()
-
-
 proc dup*[T](s: Stk[T]) =
     ## ...|a -> ...|a|a
-    let a = s.pop()
+    s.mustHave(1)
+
+    let a = s.popNoCheck()
 
     s.push(a); s.push(a)
 
 
 proc dup2*[T](s: Stk[T]) =
     ## ...|b|a -> ...|b|a|b|a
-    let a = s.pop()
-    let b = s.pop()
+    s.mustHave(2)
+
+    let a = s.popNoCheck()
+    let b = s.popNoCheck()
 
     s.push(b); s.push(a)
     s.push(b); s.push(a)
@@ -55,30 +74,37 @@ proc dup2*[T](s: Stk[T]) =
 
 proc drop*[T](s: Stk[T]) =
     ## ...|b|a -> ...|b
-    let _ = s.pop()
+    s.mustHave(1)
+    let _ = s.popNoCheck()
 
 
 proc swap*[T](s: Stk[T]) =
     ## ...|b|a -> ...|a|b
-    let a = s.pop()
-    let b = s.pop()
+    s.mustHave(2)
+
+    let a = s.popNoCheck()
+    let b = s.popNoCheck()
 
     s.push(a); s.push(b)
 
 
 proc over*[T](s: Stk[T]) =
     ## ...|b|a -> ...|b|a|b
-    let a = s.pop()
-    let b = s.pop()
+    s.mustHave(2)
+
+    let a = s.popNoCheck()
+    let b = s.popNoCheck()
 
     s.push(b); s.push(a); s.push(b)
 
 
 proc rot*[T](s: Stk[T]) =
     ## ...|c|b|a -> ...|b|a|c
-    let a = s.pop()
-    let b = s.pop()
-    let c = s.pop()
+    s.mustHave(3)
+
+    let a = s.popNoCheck()
+    let b = s.popNoCheck()
+    let c = s.popNoCheck()
 
     s.push(b); s.push(a); s.push(c)
 

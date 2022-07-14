@@ -169,6 +169,9 @@ proc evalOp(p: Program, op: TokenKind, str: string) =
         echo getStr( a )
     of Kinput:
         p.input( str )
+    of Kquit:
+       let a  = toI( toB( p.stk.pop() ) )
+       quit( getI( a ) )
     of Kindex:
         p.stk.push( new(p.loopI) )
     else:

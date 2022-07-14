@@ -105,7 +105,7 @@ proc parseCurr*(p: Parser): Node =
        Klt, Kleq, Kgt, Kgeq, Keq, Kneq,
        Kand, Kor, Knot, Kupper, Klower,
        Kto, Kis, Kcross, Kback,
-       Kprint, Kinput, Kecho, Kindex:
+       Kprint, Kinput, Kecho, Kindex, Kquit:
         return newOp(tok.kind, tok.literal)
 
     of KvalI : return newI(parseInt(tok.literal))

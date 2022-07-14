@@ -25,6 +25,4 @@ Stack oriented programming language inspired by `forth` written in `nim`
 
 ## Todo
 
-- [ ] Add quit/end command
 - [ ] Add way to auto push to alt stack
-- [ ] Add fst, snd and trd inside words

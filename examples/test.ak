@@ -1,3 +1,1 @@
-10 for i ;
-
-while print ;
+0 add
